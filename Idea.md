@@ -14,9 +14,9 @@ Tasks
 
 Start window			----> Done
 Main mechanics			----> Done
-Levels					----> Working On
-HighScore				----> Done
-Points					----> Working On
+Levels				----> Working On
+HighScore			----> Done
+Points				----> Working On
 
 
 Detils
@@ -29,18 +29,18 @@ Make a class has some methods, that changes fome fields according to difficulty 
 
 	Guidance
 	--------
-	Easy - n numbers away					----> Done
+	Easy - n numbers away			----> Done
 	Normal - High, Too high, Low, Too Low	----> Done
-	Hard - High, Low						----> Done
+	Hard - High, Low			----> Done
 	Asian - n*23 % Close, -n*10^-345 Close	----> Pending
 
 Tests
 ------
 Thread Support			----> Pass
 Json Serialization		----> Pass
-Json Deserialization	----> Pass
-Game Loop				----> Pass
-Level Initialization	----> Pass
+Json Deserialization		----> Pass
+Game Loop			----> Pass
+Level Initialization		----> Pass
 Data Writing			----> Pass
 Data Reading			----> Pass
 Data Appending			----> Failed
