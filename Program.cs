@@ -28,6 +28,7 @@ namespace NGG
                     Print("1: start Game");
                     Print("2: Help");
                     Print("3: Levels");
+                    Print("4: HighScore");
                     Print("0: Exit Console");
                     guess = Int32.Parse(Input(">>> "));
                     Console.Clear();
@@ -72,8 +73,8 @@ namespace NGG
                                     Event.gameState = false;
                                     Print($"\nFailed Trials: {Event.chances - i}");
                                     Print($"Bonus Multipliyer: {Event.bonus}");
-                                    Print($"You Got {Event.Points(i,level)} Points!");
-                                    Event.WritePoints(Event.Points(i,level));
+                                    Print($"You Got {Event.Points(i, level)} Points!");
+                                    Event.WritePoints("Player1", Event.Points(i, level), level);
                                     Input(">>>");
                                     break;
                                 }
@@ -117,6 +118,13 @@ namespace NGG
                         level = Int32.Parse(Input(">>> "));
                     }
 
+                    else if (guess == 4)
+                    {
+                        string[] data = Event.ReadPoints();
+                        Print($"High Score: {data[2]}\nPlayer: {data[3]}");
+                        Input(">>> ");
+                    }
+
                     else if (guess == 0)
                     {
                         Print("Thanks for playing...");
@@ -136,13 +144,13 @@ namespace NGG
                     Thread.Sleep(830);
                 }
 
-                catch (Exception)
+                /*catch (Exception)
                 {
                     Thread threadSound = new Thread(() => Beep(1000, 500));
                     threadSound.Start();
                     Print("Something went wrong");
                     Thread.Sleep(830);
-                }
+                }*/
             }
         }
     }

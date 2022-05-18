@@ -43,5 +43,6 @@ Game Loop			----> Pass
 Level Initialization		----> Pass
 Data Writing			----> Pass
 Data Reading			----> Pass
-Data Appending			----> Failed
+Data Appending			----> Pass
 Point System			----> Pass
+

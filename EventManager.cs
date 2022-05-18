@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace NGG
@@ -100,9 +101,55 @@ namespace NGG
             return availableChance * level * bonus;
         }
 
-        public static void WritePoints(int points)
+        public static void WritePoints(string player, int points, int level)
         {
-            
+            string path = $"{Environment.CurrentDirectory}\\file.json";
+            Storage localStorage = new(path);
+
+            if (File.Exists(path)==true)
+            {
+                string[] score = localStorage.Read(path);
+
+                if (points > Convert.ToInt16(score[2]))
+                {
+                    JsonFile file = new JsonFile
+                    {
+                        Point = points,
+                        Level = level,
+                        Player = player,
+                        HighScore = points
+                    };
+                    localStorage.Write(file);
+                }
+                else
+                {
+                    JsonFile file = new JsonFile
+                    {
+                        Point = points,
+                        Level = level,
+                        Player = player
+                    };
+                    localStorage.Write(file);
+                }
+            }
+            else
+            {
+                JsonFile file = new JsonFile
+                {
+                    Point = points,
+                    Level = level,
+                    Player = player,
+                    HighScore = points
+                };
+                localStorage.Write(file);
+            }
+        }
+
+        public static string[] ReadPoints()
+        {
+            string path = $"{Environment.CurrentDirectory}\\file.json";
+            Storage localStorage = new(path);
+             return localStorage.Read(path);
         }
 
     }

@@ -23,6 +23,14 @@ namespace NGG
 
             emulator.Write(data);
             string[] newdata = emulator.Read(path);
+            Console.WriteLine(newdata[1]);
+
+            Storage str = new(Environment.CurrentDirectory + "\\f.json");
+            JsonFile file = new()
+            {
+                Point = 10
+            };
+            str.Write(file);
             
 
         }
