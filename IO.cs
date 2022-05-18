@@ -64,12 +64,27 @@ namespace NGG
     class Storage : IO
     {
         string _Path;
-        public Storage(string path)
+        public Storage(string path) //Constructor
         {
+            //Create a new json file to store score details
+
             _Path = path;
+            if(File.Exists(path)==false)
+            {
+                var file = File.Create(path);
+                file.Close();
+                JsonFile json = new() 
+                {
+                    Player = "Default Player",
+                    HighScore = 0
+                };
+                string jsonString = JsonSerializer.Serialize(json);
+                File.WriteAllText(path, jsonString);
+            }
         }
 
         public string Write(JsonFile _json)
+            //write json file to desired path
         {
             string json = JsonSerializer.Serialize(_json);
             File.WriteAllText(_Path, json);
@@ -78,6 +93,8 @@ namespace NGG
 
         public string[] Read(string path)
         {
+            //Read json file from path
+
             var json = File.ReadAllText(path);
             JsonFile? jsonFile = JsonSerializer.Deserialize<JsonFile>(json);
 
@@ -85,7 +102,6 @@ namespace NGG
             string Point = Convert.ToString(jsonFile.Point);
             string HighScore = Convert.ToString(jsonFile.HighScore);
             string Level = Convert.ToString(jsonFile.Level);
-            
             return new[] { Player, Point, HighScore, Level };
         }
 
