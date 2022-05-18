@@ -144,13 +144,13 @@ namespace NGG
                     Thread.Sleep(830);
                 }
 
-                /*catch (Exception)
+                catch (Exception)
                 {
                     Thread threadSound = new Thread(() => Beep(1000, 500));
                     threadSound.Start();
                     Print("Something went wrong");
                     Thread.Sleep(830);
-                }*/
+                }
             }
         }
     }
