@@ -132,7 +132,7 @@ namespace NGG
                         Environment.Exit(0);
                     }
 
-                    else throw new FormatException("Invalid Input");    // This cause the FormateException cath to execute
+                    else throw new FormatException("Invalid Input");    // This cause the FormateException catch to execute
 
                 }
 
@@ -154,5 +154,4 @@ namespace NGG
             }
         }
     }
-
 }
