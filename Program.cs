@@ -40,7 +40,6 @@ namespace NGG
                             case 1:
                                 Event.Easy();
                                 break;
-
                             case 2:
                                 Event.Moderate();
                                 break;
